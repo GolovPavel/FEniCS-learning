@@ -1,5 +1,5 @@
-# FEniCS-learning
-The repository for learning fenics-project library
+# :closed_book: FEniCS-learning
+The repository for learning fenics-project library for university practice.
 
 ## Docker settings
 Start docker in Linux:
