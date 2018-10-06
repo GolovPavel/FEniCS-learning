@@ -1,4 +1,4 @@
-# fenics-learning
+# FEniCS-learning
 The repository for learning fenics-project library
 
 ## Docker settings
