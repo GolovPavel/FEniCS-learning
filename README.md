@@ -57,3 +57,31 @@ from IPython.display import HTML
 HTML(X3DOM().html(u))
 ```
 Execute (Shift-Enter) the cell. A 3D plot will appear that you can rotate and zoom using the mouse.
+
+## Using ParaView for solution visualisation
+ParaView is a powerful tool for visualizing scalar and vector fields, including those computed by FEniCS.
+The first step is to export the solution in VTK format:
+```
+vtkfile = File(’poisson/solution.pvd’)
+vtkfile << u
+```
+The following steps demonstrate how to create a plot of the solution of simple Poisson problem (see samples) in ParaView.
+1. Start the ParaView application.
+2. Click File–Open... in the top menu and navigate to the directory containing the exported solution. This should be inside a subdirectory named poisson below the directory where the FEniCS Python program was started. Select the file named solution.pvd and then click OK.
+3. Click Apply in the Properties pane on the left. This will bring up a plot of the solution.
+4. To make a 3D plot of the solution, we will make use of one of ParaView’s many filters. Click Filters–Alphabetical–Warp By Scalar in the top menu and then Apply in the Properties pane on the left. This create an elevated surface with the height determined by the solution value.
+5. To show the original plot below the elevated surface, click the little eye icon to the left of solution.pvd in the Pipeline Browser pane on the left. Also click the little 2D button at the top of the plot window to change the visualization to 3D. This lets you interact with the plot by rotating (left mouse button) and zooming (Ctrl + left mouse button).
+6. To show the finite element mesh, click on solution.pvd in the Pipeline Browser, navigate to Representation in the Properties pane, and select Surface With Edges. This should make the finite element mesh visible.
+7. To change the aspect ratio of the plot, click on WarpByScalar1 in warped plot. We also unclick Orientation Axis Visibility at the bottom of the Properties pane to remove the little 3D axes in the lower left corner of the plot window.
+8. Finally, to export the visualization to a file, click File–Save Screen-shot... and select a suitable file name such as poisson.png.
+
+### Animation visualisation in ParaView
+To be able to visualize animation solution in an external program such as ParaView, we will save the solution to a file in VTK format in each time step. We do this by first creating a File with the suffix .pvd:
+```
+vtkfile = File(’some/solution.pvd’)
+```
+Inside the time loop, we may then append the solution values to this file:
+```
+vtkfile << (u, t)
+```
+To visualize the solution, start ParaView, choose File–Open..., open some/solution.pvd, and click Apply in the Properties pane. Click on the play button to display an animation of the solution. To save the animation to a file, click File–Save Animation... and save the file to a desired file format, for example AVI or Ogg/Theora.
