@@ -62,11 +62,7 @@ file << u
 
 
 # Plot solution
-import matplotlib.pyplot as pltplt.ion()
 plot(u)
-# plot(mesh)
-plt.show()
-
 
 # In[30]:
 
