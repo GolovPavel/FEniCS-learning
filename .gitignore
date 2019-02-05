@@ -1,3 +1,7 @@
-# FEniCS staff files
+# Staff files
 **/*.pvd
 **/*.vtu
+**/*.vtk
+
+# Pycharm files
+.idea
