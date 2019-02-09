@@ -2,6 +2,7 @@
 **/*.pvd
 **/*.vtu
 **/*.vtk
+**/*.geo
 
 # Pycharm files
 .idea
