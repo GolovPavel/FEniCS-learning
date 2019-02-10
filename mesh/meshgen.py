@@ -119,7 +119,7 @@ cylinders = [
 ]
 
 GEO_FILE_NAME = "30000_2000h_3d.geo"
-MESH_FILE_NAME = "mesh.vtk"
+MESH_FILE_NAME = "30000_2000h_3d.msh"
 
 if __name__ == '__main__':
     geom = create_geometry(cylinders)
