@@ -3,6 +3,7 @@
 **/*.vtu
 **/*.vtk
 **/*.geo
+**/*.msh
 
 # Pycharm files
 .idea

@@ -23,17 +23,6 @@ class GmshElementary:
         self.volume = volume
 
 
-# def create_geometry(cylinders):
-#     geometry = pygmsh.opencascade.Geometry()
-#     for cylinder in cylinders:
-#         geometry.add_cylinder(
-#             [0.0, 0.0, 0.0],
-#             [0.0, 0.0, cylinder.height],
-#             cylinder.radius,
-#             char_length=cylinder.mesh_size
-#         )
-#     return geometry
-
 def create_geometry(cylinders):
     geometry = pygmsh.built_in.Geometry()
     prev_elementary = None
