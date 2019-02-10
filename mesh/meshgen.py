@@ -1,4 +1,3 @@
-import meshio
 import numpy as np
 import pygmsh
 
@@ -97,20 +96,5 @@ def __add_cylinder(geom, radius, lcar, H, prev_elementary):
         surface_loop = geom.add_surface_loop(
             [plane_surfaces[0], *surfaces, plane_surfaces[1], *prev_elementary.surfaces])
     volume = geom.add_volume(surface_loop)
+
     return GmshElementary(points, circles, circle_ll, lines, surface_ll, surfaces, plane_surfaces, surface_loop, volume)
-
-
-cylinders = [
-    Cylinder(100, 2000, 15),
-    Cylinder(1000, 2000, 150),
-    Cylinder(5000, 2000, 700),
-    Cylinder(30000, 2000, 3000)
-]
-
-GEO_FILE_NAME = "30000_2000h_3d.geo"
-MESH_FILE_NAME = "30000_2000h_3d.msh"
-
-if __name__ == '__main__':
-    geom = create_geometry(cylinders)
-    points, cells, point_data, cell_data, field_data = pygmsh.generate_mesh(geom, geo_filename=GEO_FILE_NAME)
-    meshio.write_points_cells(MESH_FILE_NAME, points, cells)
