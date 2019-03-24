@@ -4,6 +4,7 @@
 **/*.vtk
 **/*.geo
 **/*.msh
+**/*.mesh
 
 # Pycharm files
 .idea
